@@ -1,0 +1,33 @@
+﻿Mods: {
+	Distillery: {
+		ItemName: {
+			VanillaBuffsPicker: Vanilla Buffs
+			CalamityBuffsPicker: Calamity Buffs
+			UtilityPotionsPicker: Utility Potions
+		}
+
+		ItemTooltip: {
+			PickerItem: Click to open this shop
+		}
+
+		NPCName: {
+			Distiller: Distiller
+		}
+
+		Button: {
+			Shop: Shop
+		}
+
+		Config: {
+			EnableDistiller: {
+				Label: Distiller NPC
+				Tooltip: Allow the Distiller NPC to spawn
+			}
+
+			EnableCalamity: {
+				Label: Calamity Integration
+				Tooltip: Allow Distillery NPCs to sell Calamity items in their shops
+			}
+		}
+	}
+}

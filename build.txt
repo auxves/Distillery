@@ -1,0 +1,6 @@
+displayName = Distillery
+author = glossnyx
+version = 1.0.0
+languageVersion = 10
+includeSource = true
+side = Both
