@@ -19,6 +19,9 @@
 		}
 
 		Config: {
+			NPCs: NPCs
+			ModIntegration: Mod Integration
+
 			EnableDistiller: {
 				Label: Distiller NPC
 				Tooltip: Allow the Distiller NPC to spawn
@@ -28,6 +31,10 @@
 				Label: Calamity Integration
 				Tooltip: Allow Distillery NPCs to sell Calamity items in their shops
 			}
+		}
+
+		Census: {
+			Distiller: Have a bottle in your inventory
 		}
 	}
 }

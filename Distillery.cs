@@ -1,6 +1,6 @@
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Config;
-using Terraria.ID;
 using System.ComponentModel;
 
 namespace Distillery;
@@ -13,24 +13,29 @@ public class Distillery : Mod
 	{
 		if (ModLoader.TryGetMod("Census", out var census))
 		{
-			census.Call("TownNPCCondition", ModContent.NPCType<Distiller>(), $"Have a bottle [i:{ItemID.Bottle}] in your inventory");
+			census.Call("TownNPCCondition", ModContent.NPCType<Distiller>(), Language.GetTextValue("Mods.Distillery.Census.Distiller"));
 		}
 	}
 
-	public static Mod GetMod(string name) => ModLoader.TryGetMod(name, out var mod) ? mod : null;
+	public static Mod? GetMod(string name) => ModLoader.TryGetMod(name, out var mod) ? mod : null;
 }
 
 public class Config : ModConfig
 {
+#nullable disable
 	public static Config Instance;
 
 	public override ConfigScope Mode => ConfigScope.ServerSide;
 
-	[Header("NPCs")]
+	[Header("$Mods.Distillery.Config.NPCs")]
+	[Label("$Mods.Distillery.Config.EnableDistiller.Label")]
+	[Tooltip("$Mods.Distillery.Config.EnableDistiller.Tooltip")]
 	[DefaultValue(true)]
 	public bool EnableDistiller;
 
-	[Header("Mod Integration")]
+	[Header("$Mods.Distillery.Config.ModIntegration")]
+	[Label("$Mods.Distillery.Config.EnableCalamity.Label")]
+	[Tooltip("$Mods.Distillery.Config.EnableCalamity.Tooltip")]
 	[DefaultValue(true)]
 	public bool EnableCalamity;
 }

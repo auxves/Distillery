@@ -14,7 +14,10 @@ public abstract class Base : ModNPC
 
 	public object CurrentShop { get; set; }
 
-	public override string Texture => $"Distillery/Assets/Textures/NPCs/{GetType().Name}";
+	public Base()
+	{
+		CurrentShop = DefaultShop;
+	}
 
 	public override void SetDefaults()
 	{
@@ -61,7 +64,7 @@ public abstract class Base : ModNPC
 	{
 		if (firstButton)
 		{
-			var npc = NPCLoader.GetNPC(Type) as Base;
+			var npc = (Base) NPCLoader.GetNPC(Type);
 			npc.CurrentShop = npc.DefaultShop;
 
 			shop = true;
@@ -95,7 +98,7 @@ public class PickerHandler : ModPlayer
 		if (vendor.ModNPC is not Base) return;
 		if (item.ModItem is not PickerItem picker) return;
 
-		var npc = NPCLoader.GetNPC(vendor.type) as Base;
+		var npc = (Base) NPCLoader.GetNPC(vendor.type);
 		npc.CurrentShop = picker.Shop;
 
 		shop.SetupShop(vendor.type);
