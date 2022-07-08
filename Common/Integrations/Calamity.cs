@@ -6,7 +6,7 @@ public class Calamity
 {
 	public static readonly Mod? Mod = Config.Instance.EnableCalamity ? Distillery.GetMod("CalamityMod") : null;
 
-	public static bool Present => Mod != null;
+	public static bool Present => Mod is not null;
 
 	public static bool Downed(string boss) => (bool?) Mod?.Call("GetBossDowned", boss) ?? false;
 

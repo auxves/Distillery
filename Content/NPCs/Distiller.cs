@@ -27,7 +27,7 @@ public class Distiller : Base
 	public override bool CanTownNPCSpawn(int numTownNPCs, int money) => Config.Instance.EnableDistiller &&
 		Main.player.Any(player => player.active && player.inventory.Any(item => item.type == ItemID.Bottle));
 
-	public override List<ShopItem> GetShopItems(object type) => (ShopType) type switch
+	public override List<ShopItem?> GetShopItems(object type) => (ShopType) type switch
 	{
 		ShopType.Picker => PickerItems(),
 		ShopType.VanillaBuffs => GetVanillaBuffs(),
@@ -35,14 +35,14 @@ public class Distiller : Base
 		ShopType.UtilityPotions => GetUtilityPotions(),
 	};
 
-	static List<ShopItem> PickerItems() => new()
+	static List<ShopItem?> PickerItems() => new()
 	{
 		new ShopItem(ModContent.ItemType<VanillaBuffsPicker>(), 0),
 		Calamity.Present ? new ShopItem(ModContent.ItemType<CalamityBuffsPicker>(), 0) : null,
 		new ShopItem(ModContent.ItemType<UtilityPotionsPicker>(), 0),
 	};
 
-	static List<ShopItem> GetVanillaBuffs() => new()
+	static List<ShopItem?> GetVanillaBuffs() => new()
 	{
 		new ShopItem(ItemID.SwiftnessPotion, 5000),
 		new ShopItem(ItemID.IronskinPotion, 10000),
@@ -83,12 +83,12 @@ public class Distiller : Base
 		new ShopItem(ItemID.GenderChangePotion, 15000),
 	};
 
-	static List<ShopItem> GetCalamityBuffs() => new()
+	static List<ShopItem?> GetCalamityBuffs() => new()
 	{
 		new ShopItem(Calamity.ItemType("SupremeHealingPotion"), 15000)
 	};
 
-	static List<ShopItem> GetUtilityPotions() => new()
+	static List<ShopItem?> GetUtilityPotions() => new()
 	{
 		new ShopItem(ItemID.Bottle, 1_00),
 		new ShopItem(ItemID.BottledWater, 2_00),

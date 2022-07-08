@@ -49,7 +49,7 @@ public abstract class Base : ModNPC
 
 		foreach (var item in items)
 		{
-			if (item == null) continue;
+			if (item is null) continue;
 
 			var slot = shop.item[nextSlot++];
 
@@ -71,7 +71,7 @@ public abstract class Base : ModNPC
 		}
 	}
 
-	public abstract List<ShopItem> GetShopItems(object type);
+	public abstract List<ShopItem?> GetShopItems(object type);
 }
 
 public abstract class PickerItem : ModItem
