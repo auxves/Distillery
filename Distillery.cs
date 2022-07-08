@@ -17,7 +17,7 @@ public class Distillery : Mod
 		}
 	}
 
-	public static Mod? GetMod(string name) => ModLoader.TryGetMod(name, out var mod) ? mod : null;
+	internal static Mod? GetMod(string name) => ModLoader.TryGetMod(name, out var mod) ? mod : null;
 }
 
 public class Config : ModConfig

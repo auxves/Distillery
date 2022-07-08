@@ -12,7 +12,7 @@ public abstract class Base : ModNPC
 {
 	public abstract object DefaultShop { get; }
 
-	public object CurrentShop { get; set; }
+	public object CurrentShop;
 
 	public Base()
 	{

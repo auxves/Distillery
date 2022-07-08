@@ -123,7 +123,7 @@ public sealed class Distiller : Base
 		Main.hardMode ? new ShopItem(ItemID.TeleportationPotion, 50_00) : null,
 	};
 
-	enum ShopType
+	public enum ShopType
 	{
 		Picker,
 		VanillaBuffs,
@@ -131,19 +131,19 @@ public sealed class Distiller : Base
 		UtilityPotions
 	}
 
-	sealed class VanillaBuffsPicker : PickerItem
+	public sealed class VanillaBuffsPicker : PickerItem
 	{
 		public override int TextureSource => ItemID.SwiftnessPotion;
 		public override object Shop => ShopType.VanillaBuffs;
 	}
 
-	sealed class CalamityBuffsPicker : PickerItem
+	public sealed class CalamityBuffsPicker : PickerItem
 	{
 		public override int TextureSource => Calamity.Present ? Calamity.ItemType("SupremeHealingPotion") : ItemID.SwiftnessPotion;
 		public override object Shop => ShopType.CalamityBuffs;
 	}
 
-	sealed class UtilityPotionsPicker : PickerItem
+	public sealed class UtilityPotionsPicker : PickerItem
 	{
 		public override int TextureSource => ItemID.WormholePotion;
 		public override object Shop => ShopType.UtilityPotions;
