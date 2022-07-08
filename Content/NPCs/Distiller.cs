@@ -10,7 +10,7 @@ namespace Distillery.Content.NPCs;
 using Common.Integrations;
 
 [AutoloadHead]
-public class Distiller : Base
+public sealed class Distiller : Base
 {
 	public override object DefaultShop => ShopType.Picker;
 
@@ -26,6 +26,16 @@ public class Distiller : Base
 
 	public override bool CanTownNPCSpawn(int numTownNPCs, int money) => Config.Instance.EnableDistiller &&
 		Main.player.Any(player => player.active && player.inventory.Any(item => item.type == ItemID.Bottle));
+
+	public override List<string> SetNPCNameList() => new()
+	{
+		"Hermes",
+		"Thomas",
+		"Edward",
+		"Dmitri",
+		"Vince",
+		"Noel",
+	};
 
 	public override List<ShopItem?> GetShopItems(object type) => (ShopType) type switch
 	{
@@ -99,7 +109,7 @@ public class Distiller : Base
 		Main.hardMode ? new ShopItem(ItemID.GreaterHealingPotion, 1_00_00) : null,
 		NPC.downedMoonlord ? new ShopItem(ItemID.SuperHealingPotion, 2_50_00) : null,
 		Calamity.Downed("providence") ? new ShopItem(Calamity.ItemType("SupremeHealingPotion"), 25_00_00) : null,
-		Calamity.Downed("providence") ? new ShopItem(Calamity.ItemType("OmegaHealingPotion"), 50_00_00) : null,
+		Calamity.Downed("providence") ? new ShopItem(Calamity.ItemType("OmegaHealingPotion"), 35_00_00) : null,
 
 		// Mana Potions
 		new ShopItem(ItemID.LesserManaPotion, 2_50),
@@ -111,16 +121,6 @@ public class Distiller : Base
 		new ShopItem(ItemID.RecallPotion, 25_00),
 		new ShopItem(ItemID.WormholePotion, 50_00),
 		Main.hardMode ? new ShopItem(ItemID.TeleportationPotion, 50_00) : null,
-	};
-
-	public override List<string> SetNPCNameList() => new()
-	{
-		"Hermes",
-		"Thomas",
-		"Edward",
-		"Dmitri",
-		"Vince",
-		"Noel",
 	};
 
 	enum ShopType
